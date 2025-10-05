@@ -56,9 +56,14 @@ public class TodoApp {
     private void removeTask() {
         System.out.print("Enter id to remove: ");
         String s = scanner.nextLine();
-        int id = Integer.parseInt(s);
-        boolean ok = todoList.remove(id);
-        System.out.println(ok ? "[INFO] Removed." : "[ERROR] Not found.");
+        try {
+            int id = Integer.parseInt(s);
+            boolean ok = todoList.remove(id);
+            System.out.println(ok ? "[INFO] Removed." : "[ERROR] Not found.");
+        } catch (NumberFormatException e) {
+            System.out.println("[ERROR] Please enter a numeric id.");
+        }
+
     }
 
     private void listTasks() {
