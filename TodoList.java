@@ -25,8 +25,4 @@ public class TodoList {
         return items;
     }
 
-    // Will be implemented in the PR exercise
-    public boolean remove(int id) {
-        throw new UnsupportedOperationException("remove(id) not implemented yet");
-    }
 }
