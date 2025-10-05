@@ -25,8 +25,13 @@ public class TodoList {
         return items;
     }
 
-    // Will be implemented in the PR exercise
     public boolean remove(int id) {
-        throw new UnsupportedOperationException("remove(id) not implemented yet");
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getId() == id) {
+                items.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 }
