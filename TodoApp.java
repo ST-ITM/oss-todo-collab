@@ -10,7 +10,8 @@ public class TodoApp {
         System.out.println("=== TODO (Simple) ===");
         while (running) {
             showMenu();
-            if (!scanner.hasNextLine()) break;
+            if (!scanner.hasNextLine())
+                break;
             String choice = scanner.nextLine().trim();
             handleChoice(choice);
         }
@@ -22,7 +23,8 @@ public class TodoApp {
         System.out.println("1) Add task");
         System.out.println("2) List tasks");
         System.out.println("3) Mark DONE by id");
-        System.out.println("4) Quit");
+        System.out.println("4) Remove by id");
+        System.out.println("5) Quit");
         System.out.print("Choose: ");
     }
 
@@ -34,6 +36,8 @@ public class TodoApp {
         } else if ("3".equals(choice)) {
             markDone();
         } else if ("4".equals(choice)) {
+            removeTask();
+        } else if ("5".equals(choice)) {
             running = false;
         } else {
             System.out.println("[ERROR] Invalid option.");
@@ -47,6 +51,14 @@ public class TodoApp {
         String desc = scanner.nextLine();
         int id = todoList.add(title, desc);
         System.out.println("[INFO] Added task id " + id);
+    }
+
+    private void removeTask() {
+        System.out.print("Enter id to remove: ");
+        String s = scanner.nextLine();
+        int id = Integer.parseInt(s);
+        boolean ok = todoList.remove(id);
+        System.out.println(ok ? "[INFO] Removed." : "[ERROR] Not found.");
     }
 
     private void listTasks() {
