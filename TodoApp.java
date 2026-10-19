@@ -51,6 +51,10 @@ public class TodoApp {
         String desc = scanner.nextLine();
         int id = todoList.add(title, desc);
         System.out.println("[INFO] Added task id " + id);
+
+        if (todoList.size() == 10) {
+            System.out.println("There are 10 task in your list.");
+        }
     }
 
     private void removeTask() {

@@ -35,4 +35,8 @@ public class TodoList {
         return items;
     }
 
+
+    public int size(){
+        return items.size();
+    }
 }
